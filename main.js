@@ -14,6 +14,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(__dirname));
 app.use(cookieParser());
 
+app.use('/api/v1', require('./routes/api'));
+
 app.get('/', (req, res) => {
 	res.sendFile(path.join(__dirname + "/static/index.html"));
 });
@@ -21,8 +23,5 @@ app.get('/', (req, res) => {
 app.get('/style.css', (req, res) => {
 	res.sendFile(path.join(__dirname + "/styles/style.css"));
 });
-
-const router = require('./routes/api')
-app.use('/api', router)
 
 app.listen(PORT, () => console.log(`alive on http://localhost:${PORT}`));
