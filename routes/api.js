@@ -1,6 +1,4 @@
 const express = require('express');
-var fs = require('fs');
-const path = require('path');
 const router = express.Router();
 
 router.get('/', (req, res) => {
@@ -9,5 +7,6 @@ router.get('/', (req, res) => {
 
 const example = require('./example')
 router.use('/example', example)
+
 
 module.exports = router;
